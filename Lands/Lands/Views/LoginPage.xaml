@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lands.Views.LoginPage"
+             Title="Login"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <ScrollView
+            BindingContext="{Binding Login}">
+            <StackLayout
+            Padding="20">
+                <Image 
+                x:Name="imgOnu"
+                WidthRequest="200"/>
+                <Grid
+                    VerticalOptions="CenterAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Label
+                Text="Email"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    VerticalTextAlignment="Center"/>
+                    <Entry
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Placeholder="Enter your email..."
+                     Text="{Binding Email, Mode=TwoWay}"   
+                    FontSize="Small"
+                    Keyboard="Email"/>
+
+                    <Label
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Text="Password"
+                    VerticalTextAlignment="Center"/>
+                    <Entry
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Placeholder="Enter your password..."
+                    Text="{Binding Password, Mode=TwoWay}"    
+                    FontSize="Small"
+                    IsPassword="True" />
+                </Grid>
+                <ActivityIndicator
+                    VerticalOptions="CenterAndExpand"
+                    IsRunning="{Binding IsRunning, Mode=TwoWay}"/>
+                <StackLayout
+                Orientation="Horizontal"
+                    VerticalOptions="CenterAndExpand">
+                    <Label 
+                Text="Remeber me?"
+                VerticalTextAlignment="Center"
+                HorizontalOptions="StartAndExpand"/>
+
+                    <Switch
+                    IsToggled="{Binding IsRemembered, Mode=TwoWay}"    
+                    HorizontalOptions="End" />
+                </StackLayout>
+                <Label
+                    Text="Forgot your password?"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                    TextColor="Blue"/>
+
+
+                <StackLayout
+                Margin="20,0"
+                    Orientation="Horizontal"
+                    VerticalOptions="CenterAndExpand">
+                    <Button
+                    Command="{Binding LoginCommand}"       
+                    HeightRequest="45"
+                    Text="Login"
+                    TextColor="White"
+                    BackgroundColor="Navy"
+                    BorderRadius="15"
+                    HorizontalOptions="CenterAndExpand"
+                    IsEnabled="{Binding IsEnabled, Mode=TwoWay}"/>
+                    <Button
+                    HeightRequest="50"
+                    Text="Register"
+                    TextColor="White"
+                    BackgroundColor="Purple"
+                    BorderRadius="15"
+                    HorizontalOptions="CenterAndExpand"
+                    IsEnabled="{Binding IsEnabled, Mode=TwoWay}"/>
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center"
+                             VerticalOptions="EndAndExpand">
+                    <Image
+                    x:Name="imgFb"
+                    WidthRequest="50"/>
+                    <Image
+                    x:Name="imgGoogle"
+                    WidthRequest="40"/>
+                    <Image
+                    x:Name="imgTwitter"
+                    WidthRequest="40"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
